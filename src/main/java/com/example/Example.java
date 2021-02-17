@@ -72,7 +72,9 @@ class LoveResource {
     private final BufferedInputStream buf;
 
     public LoveResource() {
-        this.buf = new BufferedInputStream(new ByteArrayInputStream(new byte[]{}), 65536 * 32);
+        // Allocate a large amount of memory
+        int bufSize = 65536 * 32;
+        this.buf = new BufferedInputStream(new ByteArrayInputStream(new byte[]{}), bufSize);
     }
 
     public void close() {
